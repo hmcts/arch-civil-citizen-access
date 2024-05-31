@@ -22,9 +22,9 @@ public class GeneralApplicationCase extends Case
 
 	private final Map<String, String> roleMappings;
 
-	public GeneralApplicationCase(String id, String name, String claimId, boolean withNotice, Map<String,String> roleMappings)
+	public GeneralApplicationCase(String id, String claimId, boolean withNotice, Map<String,String> roleMappings)
 	{
-		super(id, "GeneralApplication", name);
+		super(id, "GeneralApplication");
 		this.claimId = claimId;
 		this.withNotice = withNotice;
 		this.roleMappings = new HashMap<>(roleMappings);

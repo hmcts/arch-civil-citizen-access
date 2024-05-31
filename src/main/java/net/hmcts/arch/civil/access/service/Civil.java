@@ -13,27 +13,27 @@ public class Civil
 {
 	public static String RAS_PROCESS_ID = "civil-citizen-access";
 
-	public static ClaimCase createClaim(String id, String name)
+	public static ClaimCase createClaim(String id)
 	{
-		ClaimCase claimCase = new ClaimCase(id, name);
+		ClaimCase claimCase = new ClaimCase(id);
 		CCD.add(claimCase);
 		return claimCase;
 	}
 
-	public static GeneralApplicationCase createGeneralApplication(String id, String claimId, String name, boolean withNotice, String ... roleMappings)
+	public static GeneralApplicationCase createGeneralApplication(String id, String claimId, boolean withNotice, String ... roleMappings)
 	{
 		Map<String, String> roleMap = new HashMap<>();
 		for (int i = 0; i < roleMappings.length; i += 2)
 		{
 			roleMap.put(roleMappings[i], roleMappings[i + 1]);
 		}
-		return createGeneralApplication(id, claimId, name, withNotice, roleMap);
+		return createGeneralApplication(id, claimId, withNotice, roleMap);
 	}
 
 
-	public static GeneralApplicationCase createGeneralApplication(String id, String claimId, String name, boolean withNotice, Map<String, String> roleMappings)
+	public static GeneralApplicationCase createGeneralApplication(String id, String claimId, boolean withNotice, Map<String, String> roleMappings)
 	{
-		GeneralApplicationCase generalApplicationCase = new GeneralApplicationCase(id, name, claimId, withNotice, roleMappings);
+		GeneralApplicationCase generalApplicationCase = new GeneralApplicationCase(id, claimId, withNotice, roleMappings);
 		CCD.add(generalApplicationCase);
 		// Set the initial role assignments after creating a GA
 		refreshGeneralApplicationCitizenAccess(generalApplicationCase);

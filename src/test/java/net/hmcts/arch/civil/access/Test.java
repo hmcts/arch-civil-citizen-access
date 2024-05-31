@@ -37,7 +37,7 @@ public class Test
 		User user09 = new User("user09");
 		User user10 = new User("user10");
 		// A claim case
-		ClaimCase claimCase01 = Civil.createClaim("claim01", "claim01");
+		ClaimCase claimCase01 = Civil.createClaim("claim01");
 		//=======================================================================================================
 		// Give some users roles on the case
 		Civil.addUserToClaim(user01.getId(), claimCase01.getId(), C_CLAIMANT_1_ROLE);
@@ -57,7 +57,7 @@ public class Test
 		//=======================================================================================================
 		//   with notice, all roles mapped
 		GeneralApplicationCase generalApplicationCase01 = Civil.createGeneralApplication(
-				"ga01", "claim01", "ga01", true,
+				"ga01", "claim01", true,
 				GA_APPLICANT_1_ROLE, C_CLAIMANT_1_ROLE, GA_APPLICANT_2_ROLE, C_CLAIMANT_2_ROLE,
 				GA_RESPONDENT_1_ROLE, C_DEFENDANT_1_ROLE, GA_RESPONDENT_2_ROLE, C_DEFENDANT_2_ROLE);
 		// How does this change the expected access?
@@ -71,7 +71,7 @@ public class Test
 		//=======================================================================================================
 		//   without notice, all roles mapped
 		GeneralApplicationCase generalApplicationCase02 = Civil.createGeneralApplication(
-				"ga02", "claim01", "ga02", false,
+				"ga02", "claim01", false,
 				GA_APPLICANT_1_ROLE, C_CLAIMANT_1_ROLE, GA_APPLICANT_2_ROLE, C_CLAIMANT_2_ROLE,
 				GA_RESPONDENT_1_ROLE, C_DEFENDANT_1_ROLE, GA_RESPONDENT_2_ROLE, C_DEFENDANT_2_ROLE);
 		// How does this change the expected access?

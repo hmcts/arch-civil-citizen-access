@@ -12,8 +12,8 @@ public class ClaimCase extends Case
 	public static String C_DEFENDANT_1_ROLE = "c-defendant-01";
 	public static String C_DEFENDANT_2_ROLE = "c-defendant-02";
 
-	public ClaimCase(String id, String name)
+	public ClaimCase(String id)
 	{
-		super(id, "Claim", name);
+		super(id, "Claim");
 	}
 }

@@ -13,13 +13,10 @@ public abstract class Case
 	@Getter
 	private final String type;
 
-	@Getter
-	private final String name;
 
-	public Case(String id, String type, String name)
+	public Case(String id, String type)
 	{
 		this.id = id;
 		this.type = type;
-		this.name = name;
 	}
 }
