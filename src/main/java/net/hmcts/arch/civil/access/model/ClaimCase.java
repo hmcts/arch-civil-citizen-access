@@ -16,10 +16,4 @@ public class ClaimCase extends Case
 	{
 		super(id, "Claim", name);
 	}
-
-	@Override
-	public Set<String> getCitizenRoles()
-	{
-		return Set.of(C_CLAIMANT_1_ROLE, C_CLAIMANT_2_ROLE, C_DEFENDANT_1_ROLE, C_DEFENDANT_2_ROLE);
-	}
 }

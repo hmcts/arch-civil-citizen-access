@@ -30,13 +30,6 @@ public class GeneralApplicationCase extends Case
 		this.roleMappings = new HashMap<>(roleMappings);
 	}
 
-
-	@Override
-	public Set<String> getCitizenRoles()
-	{
-		return Set.of(GA_APPLICANT_1_ROLE, GA_APPLICANT_2_ROLE, GA_RESPONDENT_1_ROLE, GA_RESPONDENT_2_ROLE);
-	}
-
 	public Set<String> getRolesToGiveAccess()
 	{
 		return

@@ -22,6 +22,4 @@ public abstract class Case
 		this.type = type;
 		this.name = name;
 	}
-
-	public abstract Set<String> getCitizenRoles();
 }
