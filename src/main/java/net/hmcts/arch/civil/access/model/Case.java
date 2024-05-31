@@ -5,12 +5,11 @@ import lombok.Value;
 
 import java.util.Set;
 
+@Getter
 public abstract class Case
 {
-	@Getter
 	private final String id;
 
-	@Getter
 	private final String type;
 
 

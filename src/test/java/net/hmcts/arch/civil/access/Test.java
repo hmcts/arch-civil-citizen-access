@@ -13,7 +13,6 @@ import net.hmcts.arch.civil.access.service.RAS;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +21,7 @@ public class Test
 
 	public static void main(String[] args)
 	{
-		// The expected access (modified after each change to the roles and cases)
+		// The expected access (modified below after each change to the roles and cases)
 		Access expected = new Access();
 
 		// A set of users to play with
@@ -33,9 +32,6 @@ public class Test
 		User user05 = new User("user05");
 		User user06 = new User("user06");
 		User user07 = new User("user07");
-		User user08 = new User("user08");
-		User user09 = new User("user09");
-		User user10 = new User("user10");
 		// A claim case
 		ClaimCase claimCase01 = Civil.createClaim("claim01");
 		//=======================================================================================================
@@ -139,6 +135,10 @@ public class Test
 		return access;
 	}
 
+	/*
+	 * A collection of entries showing which users have which roles on which cases.
+	 * Provided to allow separate collections to be built for expected and actual access, and compared.
+	 */
 	@Value
 	public static class Access
 	{
@@ -147,12 +147,6 @@ public class Test
 		public Access add(String userId, String caseId, String roleName)
 		{
 			entries.add(new Entry(userId, caseId, roleName));
-			return this;
-		}
-
-		public Access remove(String userId, String caseId, String roleName)
-		{
-			entries.removeIf(e -> userId.equals(e.getUserId()) && caseId.equals(e.getCaseId()) && roleName.equals(e.getRoleName()));
 			return this;
 		}
 
@@ -180,13 +174,6 @@ public class Test
 		}
 	}
 
-	public static class AccessEntry
-	{
-		String userId;
-		String caseId;
-		String roleName;
-	}
-
 	public static void showHeader(PrintStream printStream)
 	{
 		printStream.println(pad("Case", 10) + " " + pad("User", 10) + " " + pad("Role Name", 18));
@@ -202,6 +189,7 @@ public class Test
 	{
 		return pad(text, length, ' ');
 	}
+
 	public static String pad(String text, int length, char pad)
 	{
 		while (text.length() < length) text = text + pad;

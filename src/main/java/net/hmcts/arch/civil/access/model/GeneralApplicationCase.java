@@ -20,6 +20,12 @@ public class GeneralApplicationCase extends Case
 	@Setter
 	private boolean withNotice;
 
+	/*
+	 * A map of GA Role -> Claim Role.
+	 * An entry mapping G -> C means "any users with role C in the claim should get role G in this application"
+	 * However, whether the role is actually given to the user is further modified by the with / without notice
+	 * status of the application.
+	 */
 	private final Map<String, String> roleMappings;
 
 	public GeneralApplicationCase(String id, String claimId, boolean withNotice, Map<String,String> roleMappings)
@@ -30,6 +36,11 @@ public class GeneralApplicationCase extends Case
 		this.roleMappings = new HashMap<>(roleMappings);
 	}
 
+	/*
+	 * Returns a list of the citizen roles which should be given access to this application.
+	 * This is all the possible roles if the application is with notice, but just the
+	 * applicant roles if the application is without notice.
+	 */
 	public Set<String> getRolesToGiveAccess()
 	{
 		return
